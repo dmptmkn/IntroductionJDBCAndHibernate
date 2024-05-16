@@ -19,6 +19,7 @@ public class Util {
 
         try {
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+            connection.setAutoCommit(false);
         } catch (SQLException e) {
             System.out.println("Соединение не установлено!");
             throw new RuntimeException(e);
