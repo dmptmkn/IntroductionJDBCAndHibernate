@@ -4,6 +4,7 @@ import com.company.service.UserService;
 import com.company.service.UserServiceJDBCImpl;
 
 public class Main {
+
     public static void main(String[] args) {
         script(new UserServiceJDBCImpl());
     }
