@@ -1,12 +1,15 @@
 package com.company;
 
 import com.company.service.UserService;
+import com.company.service.UserServiceHibernateImpl;
 import com.company.service.UserServiceJDBCImpl;
+import com.company.util.Util;
 
 public class Main {
 
     public static void main(String[] args) {
         script(new UserServiceJDBCImpl());
+        script(new UserServiceHibernateImpl());
     }
 
     public static void script(UserService userService) {
