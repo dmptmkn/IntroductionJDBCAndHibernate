@@ -22,14 +22,14 @@ public class User {
     private String name;
 
     @Column
-    private String lastName;
+    private String lastname;
 
     @Column
     private byte age;
 
-    public User(String name, String lastName, byte age) {
+    public User(String name, String lastname, byte age) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastname;
         this.age = age;
     }
 
@@ -38,11 +38,11 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return id == user.id && age == user.age && Objects.equals(name, user.name) && Objects.equals(lastName, user.lastName);
+        return id == user.id && age == user.age && Objects.equals(name, user.name) && Objects.equals(lastname, user.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, lastName, age);
+        return Objects.hash(id, name, lastname, age);
     }
 }
