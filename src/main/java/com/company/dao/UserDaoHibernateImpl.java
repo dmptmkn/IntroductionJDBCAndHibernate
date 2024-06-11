@@ -18,7 +18,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     @SneakyThrows
     public void createUserTable() {
-        String sqlQuery = "CREATE table IF NOT EXISTS user (id BIGINT primary key auto_increment, name VARCHAR(45), lastName VARCHAR(45), age TINYINT(3))";
+        String sqlQuery = "CREATE table IF NOT EXISTS user (id BIGINT primary key auto_increment, name VARCHAR(45), lastName VARCHAR(45), age TINYINT(3) )";
 
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -94,7 +94,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @SneakyThrows
     public void clearUserTable() {
         String sqlQuery = "TRUNCATE TABLE user";
-        Transaction transaction = null;
+        Transaction transaction;
 
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
