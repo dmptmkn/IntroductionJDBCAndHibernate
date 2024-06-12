@@ -23,12 +23,12 @@ class UserServiceHibernateImplTest {
     @Test
     void createUserTable() {
         userService.dropUserTable();
-        assertDoesNotThrow(userService::createUserTable, "Произошла ошибка при создании таблицы");
+        assertDoesNotThrow(userService::createUserTable);
     }
 
     @Test
     void dropUserTable() {
-        assertDoesNotThrow(userService::dropUserTable, "Произошла ошибка при сбрасывании таблицы");
+        assertDoesNotThrow(userService::dropUserTable);
     }
 
     @Test
@@ -36,25 +36,25 @@ class UserServiceHibernateImplTest {
         User expectedUser = new User(1L, testName, testLastName, testAge);
         User actualUser = userService.getAllUsers().get(0);
 
-        assertEquals(expectedUser, actualUser, "Некорректное добавление пользователя в базу данных");
+        assertEquals(expectedUser, actualUser);
     }
 
     @Test
     void removeUserById() {
         userService.removeUserById(1);
 
-        assertTrue(userService.getAllUsers().isEmpty(), "Некорректное удаление пользователя");
+        assertTrue(userService.getAllUsers().isEmpty());
     }
 
     @Test
     void getAllUsers() {
-        assertEquals(1, userService.getAllUsers().size(), "Некорректное получение полного списка пользователей");
+        assertEquals(1, userService.getAllUsers().size());
     }
 
     @Test
     void clearUserTable() {
         userService.clearUserTable();
 
-        assertTrue(userService.getAllUsers().isEmpty(), "Некорректное очищение таблицы пользователей");
+        assertTrue(userService.getAllUsers().isEmpty());
     }
 }
